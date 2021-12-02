@@ -13,11 +13,9 @@ pub fn challenge(filename: &str)
     let mut num_increases = 0;
     let mut prev_depth = 0;
 
-    for (pos, depth) in sonar_readings[0..(sonar_readings.len() - 2)].iter().enumerate() {
+    for (pos, _depth) in sonar_readings[0..(sonar_readings.len() - 2)].iter().enumerate() {
         let slice = &sonar_readings[pos..(pos + 3)];
         let current_depth:i32 = slice.iter().sum();
-
-        println!("Prev depth is {}", prev_depth);
 
         if pos > 0 && current_depth > prev_depth {
             num_increases = num_increases + 1;
@@ -25,5 +23,5 @@ pub fn challenge(filename: &str)
         prev_depth = current_depth;
     }
 
-    println!("Challenge 1 answer: {}", num_increases);
+    println!("Challenge 1/2 answer: {}", num_increases);
 }

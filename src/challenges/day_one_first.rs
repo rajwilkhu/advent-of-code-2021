@@ -21,5 +21,5 @@ pub fn challenge(filename: &str)
         prev_depth = *depth;
     });
 
-    println!("Challenge 1 answer: {}", num_increases);
+    println!("Challenge 1/1 answer: {}", num_increases);
 }
