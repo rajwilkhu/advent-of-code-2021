@@ -1,12 +1,12 @@
 use std::fs;
 
+#[allow(dead_code)]
 pub fn challenge(filename: &str)
 {
     println!("Parsing file {}", filename);
 
     let contents = fs::read_to_string(filename)
         .expect("Something went wrong reading the file");
-
 
     let depths: Vec<i32> = contents.lines().map(|line| line.parse::<i32>().unwrap()).collect();
 
