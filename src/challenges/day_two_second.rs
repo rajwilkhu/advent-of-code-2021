@@ -15,14 +15,18 @@ pub fn challenge(filename: &str)
 
     let mut horizontal_position = 0;
     let mut depth = 0;
+    let mut aim = 0;
 
     instructions.iter().for_each(|instruction| {
-        match instruction.0 {
-            "forward" => horizontal_position += instruction.1,
-            "down" => depth += instruction.1,
-            "up" => depth -= instruction.1,
-            _ => println!("WTF?"),
-        }
+       match instruction.0 {
+           "forward" => {
+               horizontal_position += instruction.1;
+               depth += aim * instruction.1;
+           },
+           "down" => aim += instruction.1,
+           "up" => aim -= instruction.1,
+           _ => println!("WTF?"),
+       }
     });
 
     println!("Challenge 2/1 answer: {:?}", horizontal_position * depth);
